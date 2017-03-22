@@ -1,0 +1,6 @@
+C:\Users\prana\tiy\week-2\day-3\GuessingGameDeux\GuessingGameDeux\bin\Debug\GuessingGameDeux.exe.config
+C:\Users\prana\tiy\week-2\day-3\GuessingGameDeux\GuessingGameDeux\bin\Debug\GuessingGameDeux.exe
+C:\Users\prana\tiy\week-2\day-3\GuessingGameDeux\GuessingGameDeux\bin\Debug\GuessingGameDeux.pdb
+C:\Users\prana\tiy\week-2\day-3\GuessingGameDeux\GuessingGameDeux\obj\Debug\GuessingGameDeux.csprojResolveAssemblyReference.cache
+C:\Users\prana\tiy\week-2\day-3\GuessingGameDeux\GuessingGameDeux\obj\Debug\GuessingGameDeux.exe
+C:\Users\prana\tiy\week-2\day-3\GuessingGameDeux\GuessingGameDeux\obj\Debug\GuessingGameDeux.pdb
