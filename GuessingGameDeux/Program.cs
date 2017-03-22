@@ -33,11 +33,59 @@ namespace GuessingGameDeux
         {
 
             var randomNum = new Random().Next(1, 101);
-            WriteToTerminal($"The random number selected is {randomNum}");
-            string rawInput = WriteToTerminal("Try and guess a number between 1 and 100");
-            GetValidFormat(rawInput);
+            var count = 0;
+            var userGuess = 0;
+            var prevGuesses = new int[5];
 
-           
+            WriteToTerminal($"The random number selected is {randomNum}");
+
+            while (count < 5 && userGuess != randomNum)
+            {
+                Console.WriteLine("Please pick a number between 1 and 100");
+                userGuess = GetValidFormat(Console.ReadLine());
+
+                prevGuesses[count] = userGuess;
+
+                if (userGuess < randomNum)
+                {
+                    Console.WriteLine("Sorry that number is too low, try again");
+                }
+                else if (userGuess > randomNum)
+                {
+                    Console.WriteLine("Sorry that number is too high, try again");
+                }
+
+                Console.WriteLine("Your past guesses so far are: ");
+
+                foreach (var guessList in prevGuesses)
+                {
+                    if (guessList != 0)
+                    {
+                        Console.Write($"{guessList}, ");
+                    }
+
+                }
+
+                count++;
+
+                if (count > 4)
+                {
+                    Console.WriteLine("You lose the game!");
+                }
+                else if (userGuess == randomNum)
+                {
+                    Console.WriteLine("You win the game!");
+                }
+
+                
+
+
+            }
+
+            
+
+
+
 
 
 
