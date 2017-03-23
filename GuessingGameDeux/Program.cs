@@ -41,6 +41,17 @@ namespace GuessingGameDeux
             }
         }
 
+        static void TooLowTooHigh(int whatUserPicked, int datRandom)
+        {
+            if (whatUserPicked < datRandom)
+            {
+                Console.WriteLine("Sorry that number is too low, try again");
+            }
+            else if (whatUserPicked > datRandom)
+            {
+                Console.WriteLine("Sorry that number is too high, try again");
+            }
+        }
 
         static void Main(string[] args)
         {
@@ -53,23 +64,29 @@ namespace GuessingGameDeux
             WriteToTerminal($"The random number selected is {randomNum}");
 
             while (count < 5 && userGuess != randomNum)
-            {
+            { 
 
                 Console.WriteLine("Please pick a number between 1 and 100");
                 userGuess = GetValidFormat(Console.ReadLine());
 
-
-                prevGuesses[count] = userGuess;
-
-                if (userGuess < randomNum)
-                {
-                    Console.WriteLine("Sorry that number is too low, try again");
+                var beenGuessedBefore = false;
+                foreach (var checkGuess in prevGuesses) 
+                {   if (userGuess == checkGuess)
+                    {
+                        beenGuessedBefore = true;
+                    }
                 }
-                else if (userGuess > randomNum)
+                if (beenGuessedBefore)
                 {
-                    Console.WriteLine("Sorry that number is too high, try again");
+                    Console.WriteLine("You have already guessed that number");
                 }
+                else
+                {
+                    prevGuesses[count] = userGuess;
 
+                    TooLowTooHigh(userGuess, randomNum);
+                }
+                  
                 Console.WriteLine("Your past guesses so far are: ");
 
                 foreach (var guessList in prevGuesses)
@@ -85,14 +102,19 @@ namespace GuessingGameDeux
 
                 count++;
 
-       
-
                 EndingStatement(userGuess, randomNum, count);
 
-
-
-
             }
+
+       
+
+
+
+
+                   
+
+
+
 
 
 
