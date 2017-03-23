@@ -29,6 +29,19 @@ namespace GuessingGameDeux
             return number;
         }
 
+        static void EndingStatement(int userGues, int randoNum, int countt)
+        {
+            if (userGues == randoNum)
+            {
+                Console.WriteLine("You win the game, congratulations!");
+            }
+            else if (countt > 4)
+            {
+                Console.WriteLine("You lose the game!");
+            }
+        }
+
+
         static void Main(string[] args)
         {
 
@@ -41,8 +54,10 @@ namespace GuessingGameDeux
 
             while (count < 5 && userGuess != randomNum)
             {
+
                 Console.WriteLine("Please pick a number between 1 and 100");
                 userGuess = GetValidFormat(Console.ReadLine());
+
 
                 prevGuesses[count] = userGuess;
 
@@ -66,23 +81,20 @@ namespace GuessingGameDeux
 
                 }
 
+                Console.WriteLine(" ");
+
                 count++;
 
-                if (count > 4)
-                {
-                    Console.WriteLine("You lose the game!");
-                }
-                else if (userGuess == randomNum)
-                {
-                    Console.WriteLine("You win the game!");
-                }
+       
 
-                
+                EndingStatement(userGuess, randomNum, count);
+
+
 
 
             }
 
-            
+
 
 
 
